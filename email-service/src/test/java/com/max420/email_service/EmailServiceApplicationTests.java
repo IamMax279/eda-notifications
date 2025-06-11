@@ -1,4 +1,4 @@
-package com.example.max420.email_service;
+package com.max420.email_service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
