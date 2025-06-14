@@ -2,7 +2,12 @@ package com.max420.email_service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableAsync;
 
+@ComponentScan(basePackages = {
+		"com.max420.email_service.consumers"
+})
 @SpringBootApplication
 public class EmailServiceApplication {
 
