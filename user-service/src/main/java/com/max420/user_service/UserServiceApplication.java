@@ -11,7 +11,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 		"com.max420.user_service.controller",
 		"com.max420.user_service.repository",
 		"com.max420.user_service.services",
-		"com.max420.user_service.config"
+		"com.max420.user_service.config",
+		"com.max420.user_service.producers"
 })
 @SpringBootApplication
 public class UserServiceApplication {

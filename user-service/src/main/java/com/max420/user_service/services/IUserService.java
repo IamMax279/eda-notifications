@@ -5,5 +5,5 @@ import com.max420.user_service.dto.UserDto;
 import java.io.IOException;
 
 public interface IUserService {
-    void createUser(UserDto userDto) throws IOException;
+    void createUser(UserDto userDto) throws Exception;
 }

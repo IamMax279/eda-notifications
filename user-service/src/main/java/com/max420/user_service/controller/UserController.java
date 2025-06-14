@@ -14,7 +14,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    private static UserService _userService;
+    private final UserService _userService;
 
     public UserController(UserService userService) {
         _userService = userService;
