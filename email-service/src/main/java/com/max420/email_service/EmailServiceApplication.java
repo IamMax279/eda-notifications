@@ -6,7 +6,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 @ComponentScan(basePackages = {
-		"com.max420.email_service.consumers"
+		"com.max420.email_service.consumers",
+		"com.max420.email_service.config",
+		"com.max420.email_service.services"
 })
 @SpringBootApplication
 public class EmailServiceApplication {
