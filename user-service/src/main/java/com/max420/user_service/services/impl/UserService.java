@@ -37,7 +37,7 @@ public class UserService implements IUserService {
         User user = mapToUser(userDto.getName().trim(), userDto.getEmail().trim(), hashed);
         _userRepository.save(user);
 
-        String message = String.format("User created: %s <%s>", user.getEmail(), user.getName());
+        String message = String.format("%s,<%s>", user.getEmail(), user.getName());
         _userCreatedProducer.sendUserCreatedMessage(message);
     }
 
