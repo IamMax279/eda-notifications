@@ -1,0 +1,10 @@
+spring.application.name=email-service
+server.port=8081
+
+spring.rabbitmq.host=localhost
+spring.rabbitmq.port=5672
+spring.rabbitmq.username=USERNAME
+spring.rabbitmq.password=PASSWORD
+
+resend.api.key=KEY
+email.domain=DOMAIN
