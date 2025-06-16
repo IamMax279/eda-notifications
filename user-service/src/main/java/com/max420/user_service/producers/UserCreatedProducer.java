@@ -11,11 +11,11 @@ public class UserCreatedProducer {
 
     public void sendUserCreatedMessage(String message) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
+        factory.setHost("rabbitmq");
 
         try (Connection connection = factory.newConnection();
         Channel channel = connection.createChannel()) {
-            channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+            channel.queueDeclare(QUEUE_NAME, true, false, false, null);
 
             channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
             System.out.println("Sent: " + message);
