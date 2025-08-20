@@ -10,8 +10,11 @@ services:
     networks:
       - eda-network
     depends_on:
-      - db
-      - rabbitmq
+      rabbitmq:
+        condition: service_healthy
+      db:
+        condition: service_started
+
   email-service:
     build:
       context: ./email-service
@@ -21,8 +24,11 @@ services:
     networks:
       - eda-network
     depends_on:
-      - rabbitmq
-      - user-service
+      rabbitmq:
+        condition: service_healthy
+      user-service:
+        condition: service_started
+
   db:
     image: postgres:16
     ports:
@@ -35,18 +41,22 @@ services:
       - ./eda-data:/var/lib/postgresql/data
     networks:
       - eda-network
+
   rabbitmq:
     image: rabbitmq:3-management
     ports:
       - "5672:5672"
       - "15672:15672"
     environment:
-      - SPRING_RABBITMQ_HOST=RABBITMQ_HOST
-      - SPRING_RABBITMQ_PORT=RABBITMQ_PORT
-      - SPRING_RABBITMQ_USERNAME=RABBITMQ_USERNAME
-      - SPRING_RABBITMQ_PASSWORD=RABBITMQ_PASSWORD
+      RABBITMQ_DEFAULT_USER: RABBITMQ_USERNAME
+      RABBITMQ_DEFAULT_PASS: RABBITMQ_PASSWORD
     networks:
       - eda-network
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
 networks:
   eda-network:
