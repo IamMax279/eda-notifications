@@ -10,7 +10,7 @@ After completing the aforementioned instruction, just run:
 ```bash
 docker-compose up --build
 ```
-Then, to test the api functionality, you can use an HTTP client like Postman using this url:
+Then, to test the api functionality, you can use an HTTP client like Postman and type in this url for a post request with a body consisting of "name", "email" and "password":
 ```bash
 http://localhost:8080/user/create-user
 ```
