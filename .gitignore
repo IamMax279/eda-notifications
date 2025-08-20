@@ -1,2 +1,3 @@
 user-service/src/main/resources/application.properties
 email-service/src/main/resources/application.properties
+eda-data
